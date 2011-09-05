@@ -17,6 +17,8 @@ class prime:
         return True
 
     def is_prime(self, i):
+        if i < 0:
+            i = -i
         while self._max <= i:
             if self._is_next_prime(self._max):
                 self._primes.append(self._max)
@@ -36,15 +38,17 @@ n=1000
 max = 0
 max_a = max_b = 0
 p = prime() 
-for a in range(-n+1, n):
-    sys.stdout.write("\rOn a=%d  " % a)
+for b in range(-n+1, n):
+    sys.stdout.write("\rOn b=%d  " % b)
     sys.stdout.flush()
-    for b in range(-n+1, n):
-        x = get_len(a, b, p)
-        if max < x:
-            max = x
-            max_a = a
-            max_b = b
+    # b must be prime
+    if p.is_prime(b):
+        for a in range(-n+1, n):
+            x = get_len(a, b, p)
+            if max < x:
+                max = x
+                max_a = a
+                max_b = b
 sys.stdout.write("\n")
 print "max=%d max_a=%d max_b=%d" % (max, max_a, max_b)
 print "coeff=%d" % (max_a * max_b)
