@@ -39,10 +39,11 @@ class Prime:
                 x += p
         # search for unmarked
         i = prev_max + 1
-        while i * i <= m:
+        while i <= m: # possible new primes
             if self._is_prime[i]: # unmarked
                 # mark
                 p = i
+                self._primes.append(p) # add new prime
                 x = i + p # move to 2p
                 while x <= m: # 2p, 3p, 4p, ...
                     self._is_prime[x] = False
