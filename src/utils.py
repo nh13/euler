@@ -13,3 +13,14 @@ def contains_same_digits(a, b):
         if not found:
             return found
     return True
+
+def factorial(fact, n):
+    if not n in fact:
+        x = 1
+        y = 1
+        while x <= n:
+            y *= x
+            if not x in fact:
+                fact[x] = y
+            x += 1
+    return fact[n]
