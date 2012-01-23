@@ -4,14 +4,7 @@
 
 import math
 import sys
-
-def is_palindrome(x):
-    y = str(x)
-    l = len(y)
-    for i in xrange(l/2):
-        if y[i] != y[l-i-1]:
-            return False
-    return True
+from utils import is_palindrome
 
 m = -1
 m_a = -1

@@ -4,15 +4,8 @@
 
 import math
 import sys
+from utils import is_palindrome
 
-def is_palindrome(x):
-    x = str(x)
-    l = len(x)
-    for i in range(l/2):
-        if x[i] != x[l-i-1]:
-            return False
-    return True
-    
 def increment_base_two(b):
     found = False 
     for i in range(len(b)-1, -1, -1):

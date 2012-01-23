@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 
+def is_palindrome(x):
+    y = str(x)
+    l = len(y)
+    for i in xrange(l/2):
+        if y[i] != y[l-i-1]:
+            return False
+    return True
+
 def contains_same_digits(a, b):
     a = str(a)
     b = str(b)
