@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# http://projecteuler.net/index.php?section=problems&id=53
+# http://projecteuler.net/index.php?section=problems&id=54
 
 import math
 import sys
