@@ -4,6 +4,7 @@
 
 import math
 import sys
+import random
 
 class Prime:
     _primes = []
@@ -85,3 +86,31 @@ class Prime:
                 self._primes.append(i)
             i += 1
         return self._primes
+
+    def __miller_rabin_helper(self, a, s, d, n):
+        a_p = pow(a, d, n)
+        if a_p == 1:
+            return True
+        for j in xrange(s-1):
+            if a_p == n - 1:
+                return True
+            a_p = (a_p * a_p) % n
+        return (a_p == n - 1)
+
+    def miller_rabin(self, n, k):
+        if n <= 3:
+            return self.is_prime(n)
+        # compute s and d
+        d = n - 1
+        s = 0
+        while 0 == d % 2:
+            d >>= 1
+            s += 1
+        # test
+        for i in xrange(k):
+            a = 0
+            while a == 0:
+                a = random.randrange(n)
+            if not self.__miller_rabin_helper(a, s, d, n):
+                return False
+        return True
