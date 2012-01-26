@@ -98,7 +98,7 @@ class Prime:
         return (a_p == n - 1)
 
     def miller_rabin(self, n, k):
-        if n <= 3:
+        if n <= self._max:
             return self.is_prime(n)
         # compute s and d
         d = n - 1
